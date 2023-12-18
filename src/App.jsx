@@ -1,10 +1,11 @@
 import './App.css'
+import Navbar from './Components/Home/Banner/Navbar'
 
 function App() {
 
   return (
     <>
-      <p class="underline">The quick brown fox...</p>
+      <Navbar></Navbar>
     </>
   )
 }
