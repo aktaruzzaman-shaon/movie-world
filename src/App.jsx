@@ -1,11 +1,15 @@
 import './App.css'
-import Navbar from './Components/Home/Banner/Navbar'
+import Banner from './Components/Banner/Banner'
+import Home from './Components/Home/Home'
+import Navbar from './Components/Home/Navbar/Navbar'
+
 
 function App() {
 
   return (
     <>
       <Navbar></Navbar>
+      <Banner></Banner>
     </>
   )
 }
