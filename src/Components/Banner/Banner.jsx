@@ -1,14 +1,23 @@
 import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css/bundle';
+
+// import required modules
 
 const Banner = () => {
 
     return (
 
-        <div className='min-w-full bg-gradient-to-r from-cyan-500 to-blue-500'>
+        <div className='min-w-full '>
             <div className="hero w-auto min-h-min" >
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className='flex-1'>
-                        <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" className="max-w-lg rounded-lg shadow-2xl mx-auto" />
+                       
+
+
                     </div>
                     <div className='flex-1'>
                         <h1 className="text-5xl font-bold">Box Office News!</h1>
@@ -17,6 +26,8 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
+
+
         </div>
 
 
