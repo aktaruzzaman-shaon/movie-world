@@ -19,7 +19,6 @@ const MyAddedMovies = () => {
             let api = `https://api.cloudinary.com/v1_1/dwlmmaoeq/video/upload`;
             const res = await axios.post(api, data)
             const { secure_url } = res.data;
-            console.log(secure_url)
             return secure_url;
 
         } catch (error) {
@@ -33,12 +32,17 @@ const MyAddedMovies = () => {
         e.preventDefault();
         try {
             setLoading(true)
-            //upload image file
-            const videoUrl = await uploadFile('video')
+
+            //upload image file to cloudinary -----------
+            const videoUrl = await uploadFile('video');
+
+            // send url data to backend ---------------------
+            const res = await axios.post('http://localhost:5000/videoUrl',{
+                    videoUrl
+            })
+
             setVideo(null)
             setLoading(false)
-
-
         } catch (error) {
             console.log(error)
         }
@@ -62,7 +66,7 @@ const MyAddedMovies = () => {
             {/* Video upload form------------------------------- */}
             <form action="" onSubmit={handleSubmit}>
                 <div>
-                    <input onChange={(e) => setVideo((prev) => e.target.files[0])} type="file" id="file" accept='video/*'/>
+                    <input onChange={(e) => setVideo((prev) => e.target.files[0])} type="file" id="file" accept='video/*' />
                 </div>
                 <button type='submit'>Upload video</button>
             </form>
@@ -75,7 +79,7 @@ const MyAddedMovies = () => {
                     width="80"
                     color="#4fa94d"
                     ariaLabel="bars-loading"
-                    wrapperStyle={{marginLeft:'300px'}}
+                    wrapperStyle={{ marginLeft: '300px' }}
                     wrapperClass=""
                     visible={true}
                 />
