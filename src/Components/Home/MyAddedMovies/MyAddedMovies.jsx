@@ -1,31 +1,48 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { Bars } from 'react-loader-spinner';
 
 const MyAddedMovies = () => {
 
-
-const [form,setFrom] = useState({
-    title:"",
-    discription: "",
-    file:null
-})
-
-const handleChange = (event)=>{
-    const inputValue = event.target.name === "file" ? event.target.files[0] : event.target.value;
-    setFrom({
-        ...form,
-        [event.target.name] : inputValue
-    })
-}
-
- const handleSubmit = (event)=>{
-    event.preventDefault();
-    console.log({form})
- }
+    const [video, setVideo] = useState(null);
+    const [loading, setLoading] = useState(false)
 
 
+    // upload video to cloudinary server-------------------
+    const uploadFile = async () => {
+        // file data processing
+        const data = new FormData();
+        data.append("file", video)
+        data.append("upload_preset", 'videos_preset')
+
+        try {
+            let api = `https://api.cloudinary.com/v1_1/dwlmmaoeq/video/upload`;
+            const res = await axios.post(api, data)
+            const { secure_url } = res.data;
+            console.log(secure_url)
+            return secure_url;
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
+    // handle submit video form --------------------------
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            setLoading(true)
+            //upload image file
+            const videoUrl = await uploadFile('video')
+            setVideo(null)
+            setLoading(false)
 
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     // const inputRef = React.useRef();
     // const [source, setSource] = useState();
@@ -41,30 +58,28 @@ const handleChange = (event)=>{
     return (
         <div>
 
+
+            {/* Video upload form------------------------------- */}
             <form action="" onSubmit={handleSubmit}>
-                <div className='my-5'>
-                    <input onChange={handleChange} type="text" name="title" autoComplete='off' placeholder='title' />
-                </div>
                 <div>
-                    <textarea onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='description' />
-                </div>
-                <div>
-                    <input onChange={handleChange} type="file" name="file" accept='video/mp4' placeholder='Add video file'/>
+                    <input onChange={(e) => setVideo((prev) => e.target.files[0])} type="file" id="file" accept='video/*'/>
                 </div>
                 <button type='submit'>Upload video</button>
             </form>
 
 
-
-
-
-
-
-
-
-
-
-
+            {/* Loading icon ------------------------------ */}
+            {
+                loading && <Bars
+                    height="50"
+                    width="80"
+                    color="#4fa94d"
+                    ariaLabel="bars-loading"
+                    wrapperStyle={{marginLeft:'300px'}}
+                    wrapperClass=""
+                    visible={true}
+                />
+            }
 
             {/* <input
                 ref={inputRef}
