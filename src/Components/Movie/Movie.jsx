@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReactPlaeyer = () => {
+const Movie = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const ReactPlaeyer = () => {
     );
 };
 
-export default ReactPlaeyer;
+export default Movie;
