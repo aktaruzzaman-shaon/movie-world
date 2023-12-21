@@ -26,7 +26,25 @@ const UpComingMovies = () => {
                 modules={[Navigation]}
                 navigation
                 slidesPerView={3}
-                spaceBetween={30}
+                spaceBetween={20}
+                breakpoints={{
+                    "@0.00": {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    "@0.75": {
+                        slidesPerView: 1.3,
+                        spaceBetween: 20,
+                    },
+                    "@1.00": {
+                        slidesPerView: 2.5,
+                        spaceBetween: 40,
+                    },
+                    "@1.50": {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                }}
             >
                 {
                     allUpcomingMovies.map((singleUpcomingMovie, index) => <SwiperSlide key={index}><SingleUpComingMovie singleUpcomingMovie={singleUpcomingMovie}></SingleUpComingMovie></SwiperSlide>)

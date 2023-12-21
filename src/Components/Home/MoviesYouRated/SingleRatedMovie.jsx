@@ -11,7 +11,7 @@ const SingleRatedMovie = ({singleRatedVideo}) => {
     }
     
     return (
-        <div className="card card-compact sm:w-64">
+        <div className="card card-compact sm:w-72">
             <MoviePlayer singleRatedVideo={singleRatedVideo} ></MoviePlayer>
             <div className="card-body bg-gray-600" onClick={singMovieDetails}>
                 <h2 className="card-title">JOKER</h2>

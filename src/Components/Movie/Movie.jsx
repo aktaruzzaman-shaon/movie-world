@@ -9,13 +9,15 @@ const Movie = () => {
 
     const location = useLocation();
     const movieDetails = location.state.singleRatedVideo;
+    const { rating } = movieDetails;
 
+    // handle rating onclick------------------------
     const handleRating = (e) => {
         handleRatingRate(e);
         postRatingData();
     }
 
-    // handle ratings -----------------------------
+    // handle ratings event -----------------------------
     const handleRatingRate = (e) => {
         const rating = +e.target.value + 1;
         setRatingNumber(rating)
@@ -50,7 +52,7 @@ const Movie = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
 
                         {/* Rating parts------------------------------------ */}
-                        <p>Ratings {ratingNumber} /5</p>
+                        <p>Ratings {rating} /5</p>
                         {
                             [...Array(5)].map((star, index) => {
                                 return (
@@ -62,14 +64,9 @@ const Movie = () => {
                             })
                         }
                     </div>
-
-
                 </div>
-
-                {/* cast section ------------------------------------------ */}
-
-
             </div>
+            {/* cast section static------------------------------------------ */}
         </div>
     );
 };
