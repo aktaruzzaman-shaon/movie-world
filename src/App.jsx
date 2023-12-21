@@ -3,18 +3,18 @@ import './App.css'
 import Home from './Components/Home/Home'
 import Navbar from './Components/Home/Navbar/Navbar'
 import Movie from './Components/Movie/Movie'
-import ReactRating from './Components/ReactRating'
+import Footer from './Components/Shared/Footer'
 
 function App() {
 
   return (
     <>
       <Navbar></Navbar>
-      <ReactRating></ReactRating>
       <Routes>
         <Route path='/' element={<Home></Home>}>Home</Route>
         <Route path="movie" element={<Movie></Movie>}>Movies</Route>
       </Routes>
+      <Footer></Footer>
     </>
   )
 }

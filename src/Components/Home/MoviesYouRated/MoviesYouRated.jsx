@@ -11,6 +11,7 @@ const MoviesYouRated = () => {
 
     const [allRatedVideo, setAllRatedVideo] = useState([]);
 
+    // load data---------------------------
     useEffect(() => {
         axios.get("http://localhost:5000/allMovie")
             .then(response => {
@@ -22,14 +23,16 @@ const MoviesYouRated = () => {
             });
     }, [])
 
+   
+
     return (
         <div className='mt-10'>
-            <p>Movies you rated</p>
+            <p className='font-bold text-2xl my-10'>Movies you rated</p>
 
             <Swiper
                 modules={[Navigation]}
                 navigation
-                slidesPerView={3}
+                slidesPerView={4}
                 spaceBetween={30}
             >
                 {

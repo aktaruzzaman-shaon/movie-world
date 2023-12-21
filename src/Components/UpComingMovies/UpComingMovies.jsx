@@ -21,7 +21,7 @@ const UpComingMovies = () => {
     }, [])
     return (
         <div>
-            <p className='mt-5'>Upcoming movies</p>
+            <p className='font-bold text-2xl my-10'>Upcoming movies</p>
             <Swiper
                 modules={[Navigation]}
                 navigation
