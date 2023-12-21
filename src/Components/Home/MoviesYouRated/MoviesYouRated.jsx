@@ -24,6 +24,7 @@ const MoviesYouRated = () => {
 
     return (
         <div className='mt-10'>
+            <p>Movies you rated</p>
 
             <Swiper
                 modules={[Navigation]}

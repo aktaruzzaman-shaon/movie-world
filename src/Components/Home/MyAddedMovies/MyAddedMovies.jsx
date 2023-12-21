@@ -37,8 +37,8 @@ const MyAddedMovies = () => {
             const videoUrl = await uploadFile('video');
 
             // send url data to backend ---------------------
-            const res = await axios.post('http://localhost:5000/videoUrl',{
-                    videoUrl
+            const res = await axios.post('http://localhost:5000/videoUrl', {
+                videoUrl
             })
 
             setVideo(null)
@@ -61,14 +61,14 @@ const MyAddedMovies = () => {
     // };
     return (
         <div>
-
+            <p className='font-bold text-2xl my-10'>Upload movie</p>
 
             {/* Video upload form------------------------------- */}
-            <form action="" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div>
-                    <input onChange={(e) => setVideo((prev) => e.target.files[0])} type="file" id="file" accept='video/*' />
+                    <input onChange={(e) => setVideo((prev) => e.target.files[0])} type="file" id="file" accept='video/*' className='bg-primary' />
                 </div>
-                <button type='submit'>Upload video</button>
+                <button type='submit' className='btn btn-primary my-5'>Upload video</button>
             </form>
 
 

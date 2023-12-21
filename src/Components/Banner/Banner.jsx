@@ -7,8 +7,6 @@ import Slider from '../Shared/Slider';
 const Banner = () => {
 
     return (
-
-
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row">
 
@@ -17,10 +15,8 @@ const Banner = () => {
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <button className="btn btn-primary">Get Started</button>
                 </div>
-                <div className='flex-1 w-50'>
-                    <div className="mx-auto w-48">
+                <div className='flex-1 w-56'>
                         <Slider></Slider>
-                    </div>
                 </div>
 
             </div>
